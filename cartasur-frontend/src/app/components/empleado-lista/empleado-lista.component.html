@@ -1,0 +1,28 @@
+<div class="lista-card">
+  <h3>Listado de empleados</h3>
+
+  <table *ngIf="empleados.length > 0; else sinEmpleados">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of empleados" [class.inactivo]="!emp.activo">
+        <td>{{ emp.nombre }}</td>
+        <td>{{ emp.apellido }}</td>
+        <td>
+          <span [class]="emp.activo ? 'badge activo' : 'badge inactivo'">
+            {{ emp.activo ? 'Activo' : 'Inactivo' }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #sinEmpleados>
+    <p class="vacio">No hay empleados registrados.</p>
+  </ng-template>
+</div>

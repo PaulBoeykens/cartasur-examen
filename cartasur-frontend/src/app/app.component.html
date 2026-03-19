@@ -1,0 +1,31 @@
+<div class="container">
+  <header class="header">
+    <h1>Gestión de Empleados</h1>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <app-empleado-form (empleadoAgregado)="agregarEmpleado($event)" />
+
+      <div class="resumen activos-box">
+        <h4>Empleados activos</h4>
+        <p class="numero">{{ activos.length }}</p>
+      </div>
+
+      <div class="resumen inactivos-box">
+        <h4>Empleados inactivos</h4>
+        <p class="numero">{{ inactivos.length }}</p>
+      </div>
+    </aside>
+
+    <section class="content">
+      <app-empleado-lista [empleados]="empleados" />
+
+      <div class="api-result" *ngIf="dummyData || dummyError">
+        <h3>Resultado API externa</h3>
+        <pre *ngIf="dummyData">{{ dummyData | json }}</pre>
+        <p *ngIf="dummyError" class="error">No se pudo conectar con la API.</p>
+      </div>
+    </section>
+  </main>
+</div>

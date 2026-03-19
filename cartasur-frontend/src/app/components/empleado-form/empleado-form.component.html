@@ -1,0 +1,22 @@
+<div class="form-card">
+  <h3>Agregar empleado</h3>
+
+  <div class="campo">
+    <label>Nombre</label>
+    <input [(ngModel)]="nombre" placeholder="Nombre" />
+  </div>
+
+  <div class="campo">
+    <label>Apellido</label>
+    <input [(ngModel)]="apellido" placeholder="Apellido" />
+  </div>
+
+  <div class="campo campo-check">
+    <label>
+      <input type="checkbox" [(ngModel)]="activo" />
+      Activo
+    </label>
+  </div>
+
+  <button (click)="agregar()">Agregar</button>
+</div>
